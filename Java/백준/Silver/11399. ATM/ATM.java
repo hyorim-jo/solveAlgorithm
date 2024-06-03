@@ -16,16 +16,18 @@ public class Main
 		for(int i = 0; i < n; i++)
 		    time[i] = in.nextInt();
 		    
-		Arrays.sort(time);
+		Arrays.sort(time);//정렬
 		int sum = 0;
 		int allSum = 0;
 		
 		for(int i = 0; i < n; i++)
-		{
-		    allSum += time[i];
-            	    sum += allSum;
+		{//걸리는 시간을 합한다
+		//각각의 사람이 걸리는 시간과
+		//총 걸리는 시간을 더한다
+		    sum += time[i];
+            allSum += sum;
 		}
 		
-		System.out.println(sum);
+		System.out.println(allSum);
 	}
 }
