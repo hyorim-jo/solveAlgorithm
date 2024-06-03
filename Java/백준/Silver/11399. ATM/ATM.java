@@ -23,7 +23,7 @@ public class Main
 		for(int i = 0; i < n; i++)
 		{
 		    allSum += time[i];
-            sum += allSum;
+            	    sum += allSum;
 		}
 		
 		System.out.println(sum);
