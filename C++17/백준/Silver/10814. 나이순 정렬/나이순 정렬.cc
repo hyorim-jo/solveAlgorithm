@@ -1,23 +1,12 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
-class member
+bool compare(pair<int, string> a, pair<int, string> b)
 {
-    int age;
-    string name;
-    
-    public:
-    member(int a = 0, string n = "") : age{a}, name{n} {};
-    int getAge() const { return age; }
-    string getName() const { return name; }
-    void print() { cout << age << ' ' << name << '\n'; }
-};
-
-bool compare(const member& a, const member& b)
-{
-    return a.getAge() < b.getAge();
+    return a.first < b.first;
 }
 
 int main()
@@ -27,20 +16,20 @@ int main()
     int n;
     cin >> n;
     
-    member *memList = new member[n];
+    vector<pair<int, string>> memList;
     
     for(int i = 0; i < n; i++)
     {
         int a; string n;
         cin >> a >> n;
-        memList[i] = member(a, n);
+        memList.push_back({a, n});
+        // memList.push_back(make_pair(a, n));
     }
     
-    stable_sort(memList, memList+n, compare);
+    stable_sort(memList.begin(), memList.end(), compare);
     
     for(int i = 0; i < n; i++)
-        memList[i].print();
+        cout << memList[i].first << ' ' << memList[i].second << '\n';
     
-    delete []memList;
     return 0;
 }
